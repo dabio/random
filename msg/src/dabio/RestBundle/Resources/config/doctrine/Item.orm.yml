@@ -1,0 +1,18 @@
+dabio\RestBundle\Entity\Item:
+    type: entity
+    table: items
+    id:
+        id:
+            type: string
+            id: true
+            generator:
+                strategy: UUID
+    fields:
+        description:
+            type: text
+        name:
+            type: string
+            length: 255
+        price:
+            type: float
+    lifecycleCallbacks: {  }

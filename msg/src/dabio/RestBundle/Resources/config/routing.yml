@@ -1,0 +1,3 @@
+# Items
+dabio_rest_item:
+    resource: "@dabioRestBundle/Resources/config/routing/items.yml"

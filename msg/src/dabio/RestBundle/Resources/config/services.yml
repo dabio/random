@@ -1,0 +1,5 @@
+# dabio_rest.service.xxx
+
+services:
+    dabio_rest.service.entity_formatter:
+        class: dabio\RestBundle\Service\EntityFormatter
