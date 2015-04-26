@@ -7,21 +7,24 @@ dabio_rest_item_list:
 # CRUD
 
 # Create
-#dabio_rest_item_create:
-#    path:     /items
-#    defaults: { _controller: dabioRestBundle:Item:create }
-#    methods:  [POST]
-#
-#dabio_rest_item_read:
-#    path:     /items/{id}
-#    defaults: { _controller: dabioRestBundle:Item:read }
-#    methods:  [GET]
-#
-#dabio_rest_item_update:
-#    path:     /items/{id}
-#    defaults: { _controller: dabioRestBundle:Item:update }
-#    methods:  [PUT]
-#
+dabio_rest_item_create:
+    path:     /items
+    defaults: { _controller: dabioRestBundle:Item:create }
+    methods:  [POST]
+
+# Read
+dabio_rest_item_read:
+    path:     /items/{id}
+    defaults: { _controller: dabioRestBundle:Item:read }
+    methods:  [GET]
+
+# Update
+dabio_rest_item_update:
+    path:     /items/{id}
+    defaults: { _controller: dabioRestBundle:Item:update }
+    methods:  [PUT]
+
+# Delete
 #dabio_rest_item_delete:
 #    path:     /items/{id}
 #    defaults: { _controller: dabioRestBundle:Item:delete }
