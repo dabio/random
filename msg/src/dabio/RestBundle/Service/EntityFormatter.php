@@ -2,6 +2,7 @@
 
 namespace dabio\RestBundle\Service;
 
+use dabio\RestBundle\Entity\Cart;
 use dabio\RestBundle\Entity\Item;
 
 /**
@@ -11,6 +12,35 @@ use dabio\RestBundle\Entity\Item;
  */
 class EntityFormatter
 {
+    /**
+     * Formats a cart entity.
+     *
+     * @param Cart $cart
+     *
+     * @return array
+     */
+    public function cartArrayFormat(Cart $cart)
+    {
+        return [
+            'id' => $cart->getId(),
+            'item' => $this->itemArrayFormat($cart->getItem()),
+        ];
+    }
+
+    /**
+     * Formats all given cart objects inside this array.
+     *
+     * @param array $carts
+     *
+     * @return array
+     */
+    public function cartsArrayFormat(array $carts)
+    {
+        return array_map(function(Cart $cart) {
+            return $this->cartArrayFormat($cart);
+        }, $carts);
+    }
+
     /**
      * Format item entity to an associate array.
      *

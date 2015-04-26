@@ -1,0 +1,23 @@
+dabio\RestBundle\Entity\Cart:
+    type: entity
+    table: carts
+    id:
+        id:
+            type: string
+            id: true
+            generator:
+                strategy: UUID
+    fields:
+        customerId:
+            type: string
+            length: 255
+            column: customer_id
+    lifecycleCallbacks: {  }
+
+    manyToOne:
+        item:
+            targetEntity: Item
+            inversedBy: carts
+            joinColumn:
+                name: item_id
+                referencedColumnName: id

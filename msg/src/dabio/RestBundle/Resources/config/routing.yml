@@ -1,3 +1,7 @@
 # Items
 dabio_rest_item:
     resource: "@dabioRestBundle/Resources/config/routing/items.yml"
+
+# Carts
+dabio_rest_cart:
+    resource: "@dabioRestBundle/Resources/config/routing/carts.yml"

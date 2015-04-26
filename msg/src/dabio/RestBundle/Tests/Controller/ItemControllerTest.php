@@ -42,9 +42,11 @@ class ItemControllerTest extends WebTestCase
         $connection = $this->em->getConnection();
         $platform   = $connection->getDatabasePlatform();
 
+        $connection->executeQuery('SET FOREIGN_KEY_CHECKS = 0;');
         $connection->executeUpdate(
             $platform->getTruncateTableSQL('items', true)
         );
+        $connection->executeQuery('SET FOREIGN_KEY_CHECKS = 1;');
 
         $this->em->close();
     }

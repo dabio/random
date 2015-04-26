@@ -1,4 +1,4 @@
-# list
+# List
 dabio_rest_item_list:
     path:     /items
     defaults: { _controller: dabioRestBundle:Item:list }

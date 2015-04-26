@@ -10,7 +10,20 @@ POST   | /cart/add   | customer_id, item_id                    | id, error
 
 ## Opinion
 
-This URL schema is not RESTful.
+This URL schema is not that RESTful.
+
+I would rather suggest using the following URL schema.
+
+Method | URL         | Parameters                              | Response
+-------|-------------|-----------------------------------------|---------
+POST   | /items      | name, description, price                | item, error
+PUT    | /items/:id  | name, description, price                | item, error
+GET    | /items      |                                         | list all items
+POST   | /cart       | item_id                                 | cart, error
+
+Most of them are just minor changes in the URL naming. The cart should not get the customer_id as a parameter. The customer_id is a rather sensitive attribute, which should better be in a session (represented by a hash).
+
+As no response format was specified, I assume JSON might be an option.
 
 ## Getting started
 

@@ -3,6 +3,7 @@
 namespace dabio\RestBundle\Tests\Controller;
 
 use dabio\RestBundle\Service\EntityFormatter;
+use dabio\RestBundle\Tests\Fixtures\CartFixtures;
 use dabio\RestBundle\Tests\Fixtures\ItemFixtures;
 
 /**
@@ -73,4 +74,59 @@ class EntityFormatterTest extends \PHPUnit_Framework_TestCase
             $formatter->itemsArrayFormat(ItemFixtures::getTestItems())
         );
     }
+
+    /**
+     * Checks for the correct cart format.
+     */
+    public function testCart1ArrayFormat()
+    {
+        $formatter = new EntityFormatter();
+
+        $this->assertEquals(
+            [
+                'id' => null,
+                'item' => [
+                    'id' => null,
+                    'description' => 'Item 1 Description',
+                    'name' => 'Item 1 Name',
+                    'price' => 1
+                ]
+            ],
+            $formatter->cartArrayFormat(CartFixtures::getTestCart1())
+        );
+    }
+
+    /**
+     * Checks the formatter for expected return array format.
+     */
+    public function testCartsArrayFormat()
+    {
+        $formatter = new EntityFormatter();
+
+        $this->assertEquals(
+            [
+                [
+                    'id' => null,
+                    'item' => [
+                        'id' => null,
+                        'description' => 'Item 1 Description',
+                        'name' => 'Item 1 Name',
+                        'price' => 1
+                    ]
+                ],
+                [
+                    'id' => null,
+                    'item' => [
+                        'id' => null,
+                        'description' => 'Item 2 Description',
+                        'name' => 'Item 2 Name',
+                        'price' => 2.5
+                    ]
+                ]
+
+            ],
+            $formatter->cartsArrayFormat(CartFixtures::getTestCarts())
+        );
+    }
+
 }

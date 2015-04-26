@@ -2,6 +2,7 @@
 
 namespace dabio\RestBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -29,6 +30,19 @@ class Item
      */
     private $price;
 
+    /**
+     * @var ArrayCollection
+     */
+    private $carts;
+
+
+    /**
+     * Class Constructor
+     */
+    public function __construct()
+    {
+        $this->carts = new ArrayCollection();
+    }
 
     /**
      * Get id
@@ -111,4 +125,42 @@ class Item
     {
         return $this->price;
     }
+
+
+    /**
+     * Add cart
+     *
+     * @param Cart $cart
+     *
+     * @return Item
+     */
+    public function addCart(Cart $cart)
+    {
+        $this->carts[] = $cart;
+
+        return $this;
+    }
+    /**
+     * Remove cart
+     *
+     * @param Cart $cart
+     *
+     * @return Item
+     */
+    public function removeCart(Cart $cart)
+    {
+        $this->carts->removeElement($cart);
+
+        return $this;
+    }
+    /**
+     * Get carts
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getCarts()
+    {
+        return $this->carts;
+    }
+
 }

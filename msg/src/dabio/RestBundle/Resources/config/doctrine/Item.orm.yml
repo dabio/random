@@ -16,3 +16,8 @@ dabio\RestBundle\Entity\Item:
         price:
             type: float
     lifecycleCallbacks: {  }
+
+    oneToMany:
+        carts:
+          targetEntity: Cart
+          mappedBy: item

@@ -1,0 +1,19 @@
+# List
+dabio_rest_cart_list:
+    path:     /carts
+    defaults: { _controller: dabioRestBundle:Cart:list }
+    methods:  [GET]
+
+# CRUD
+
+# Create
+dabio_rest_cart_create:
+    path:     /carts
+    defaults: { _controller: dabioRestBundle:Cart:create }
+    methods:  [POST]
+
+# Read
+dabio_rest_cart_read:
+    path:     /carts/{id}
+    defaults: { _controller: dabioRestBundle:Cart:read }
+    methods:  [GET]
